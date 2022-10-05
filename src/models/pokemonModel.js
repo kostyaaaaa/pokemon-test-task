@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const normalizeSchema = {
+  transform: function (doc, ret, options) {
+    delete ret._id;
+  },
+};
+
 const PokemonStatsSchema = new Schema({
   total: { type: Number, required: true },
   atk: { type: Number, required: true },
@@ -34,13 +40,14 @@ const PokemonSchema = new Schema({
   type2: { type: String },
   weather1: { type: String, required: true },
   weather2: { type: String },
-  stats: { PokemonStatsSchema },
-  characteristics: {
-    PokemonCharacteristicsSchema,
-  },
+  stats: PokemonStatsSchema,
+  characteristics: PokemonCharacteristicsSchema,
   cp40: { type: Number, required: true },
   cp39: { type: Number, required: true },
 });
+
+PokemonStatsSchema.set('toJSON', normalizeSchema);
+PokemonCharacteristicsSchema.set('toJSON', normalizeSchema);
 
 const PokemonModel = mongoose.model('Pokemons', PokemonSchema);
 
