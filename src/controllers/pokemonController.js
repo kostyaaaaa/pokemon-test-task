@@ -1,5 +1,5 @@
-const pokemonService = require("../services/pokemonService.js");
-const statusCodes = require("../constants/httpStatusCodes.js");
+const pokemonService = require('../services/pokemonService.js');
+const statusCodes = require('../constants/httpStatusCodes.js');
 
 const getPokemons = async (req, res, next) => {
   try {

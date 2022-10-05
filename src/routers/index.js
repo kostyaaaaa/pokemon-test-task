@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 
 const router = express.Router();
 
-const pokemonRouter = require("./pokemonRouter");
+const pokemonRouter = require('./pokemonRouter');
 
-router.use("/api/pokemons", pokemonRouter);
+router.use('/api/pokemons', pokemonRouter);
 
 module.exports = router;
