@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js",
-    "start": "pm2 start ./src/index.js && pm2 logs"
+    "start": "pm2 start ./src/index.js && pm2 logs",
+    "prepare": "husky install",
+    "lint": "eslint src/",
+    "prettier": "prettier --write src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +27,9 @@
     "express": "^4.18.1",
     "mongoose": "^6.6.4",
     "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "prettier": "2.7.1"
   }
 }
