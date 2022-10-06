@@ -9,6 +9,12 @@ const minMaxFilters = [
   'maxSta',
 ];
 
+/**
+ * @function getCorrectFilters
+ * @description transform provided filters to the correct format for the mongodb model filters
+ * @param {Object} queryFilters
+ * @returns {Object} correctFilters
+ */
 exports.getCorrectFilters = queryFilters => {
   const correctFilters = { ...queryFilters };
   Object.keys(queryFilters).forEach(filter => {

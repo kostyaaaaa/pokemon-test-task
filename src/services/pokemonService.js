@@ -4,6 +4,13 @@ const { getCorrectFilters } = require('../utils/pokemonUtils');
 const DEFAULT_LIMIT = 50;
 const DEFAULT_PAGE = 1;
 
+/**
+ * @function getPokemons
+ * @description performs request to the mongodb to find pokemons, that fits to the query
+ * returns pokemons list, list length
+ * @param {Object} query express req.query
+ * @returns {Object}
+ */
 const getPokemons = async query => {
   const { limit, page, ...rest } = query;
   const l = limit || DEFAULT_LIMIT;
